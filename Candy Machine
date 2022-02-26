@@ -1,0 +1,82 @@
+package KateJenniferC.Gardon;
+import java.util.Scanner;
+
+   public class CandyMachine {
+     static Scanner keyboard = new Scanner (System.in);
+     
+     //Item Selection
+     public static double itemSelection(){
+       double price = -1;
+       System.out.println("Here are the Items");
+       System.out.println("1.  1.25pesos Candies");
+       System.out.println("2   2.00pesos Chips ");
+       System.out.println("3.  1.75pesos Gum ");
+       System.out.println("4.  1.55pesos Cookies");
+     
+       System.out.println();
+       System.out.println("What would you like to purchase in the Items (NUMBER)?");
+       String choice = keyboard.next().toUpperCase();
+       
+       if(choice.equals("1")){
+         price = 1.25;
+         return 1.25;
+       }     
+       else if(choice.equals("2")){
+         price = 2.00;
+         return 2.00;
+       }
+       else if(choice.equals("3")){
+         price = 1.75;
+         return 1.75;
+       }
+       else if(choice.equals("4")){ 
+         price = 1.55;
+         return 1.55;
+       }    
+      else{
+      return price; 
+   }
+        
+      }
+       
+       
+   //Method to Dispense Candy and Return Change
+   public static void dispense(double moneyinserted, double candyCost){
+     if(moneyinserted > candyCost){
+        System.out.println("Purchasing...");
+        System.out.println("Here's your Candy!!!");
+        double change = moneyinserted - candyCost;
+        System.out.println("Here's your P" + change + "in change.");
+        System.out.println("Please come back again soon <3");
+    }
+    else{
+      System.out.println("Sorry,you don't have enough money. Here's your P" + moneyinserted +" back. Thank you.");
+        }
+          
+      }
+     
+        
+   
+   
+       
+       
+  
+     
+  public static void main(String[] args) {
+  
+  //Welcome Statement to Candy Machine
+   System.out.println("Welcome to King Candy Machine");
+ 
+ //For Customer Information
+ System.out.println("What would you like to buy in the Items (NUMBER)?");
+  double moneyinserted= keyboard.nextDouble();
+  
+  
+  //return type of the method was double, so have to store it
+  double candyCost = itemSelection();
+  
+  //return type was void so don't have to store it
+  dispense(moneyinserted, candyCost);
+  
+  }
+}
